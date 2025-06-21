@@ -1,0 +1,10 @@
+streamlit==1.46.0
+pillow==11.2.1
+numpy>=1.26.0,<2.2.0
+pandas==2.3.0
+matplotlib==3.10.3
+opencv-python-headless==4.11.0.86
+tqdm==4.67.1
+scikit-learn==1.7.0
+tensorflow==2.19.0
+tensorflow-io-gcs-filesystem==0.37.1
