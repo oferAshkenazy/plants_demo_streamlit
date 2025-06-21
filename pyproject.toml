@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "plants-demo-streamlit"
+version = "0.1.0"
+description = ""
+authors = ["oferAshkenazy <adaofer@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+streamlit = "^1.46.0"
+pillow = "^11.2.1"
+numpy = ">=1.26.0,<2.2.0"
+pandas = "^2.3.0"
+matplotlib = "^3.10.3"
+opencv-python-headless = "^4.11.0.86"
+tqdm = "^4.67.1"
+scikit-learn = "^1.7.0"
+python = "^3.10"
+tensorflow = "^2.19.0"
+
+# Workaround: on Windows pick the last Windows-compatible release (<0.32.0)
+# elsewhere pick the matching 0.37.1+ required by TF 2.19
+tensorflow-io-gcs-filesystem = [
+  { version = "<0.32.0", markers = "sys_platform == 'win32'" },
+  { version = ">=0.37.1", markers = "sys_platform != 'win32'" }
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
