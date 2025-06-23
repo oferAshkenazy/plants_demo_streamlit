@@ -78,6 +78,7 @@ if not uploaded:
 img = Image.open(uploaded).convert("RGB")
 st.image(img, caption="Uploaded Image", use_column_width=True)
 
+
 # Preprocess
 img_resized = img.resize((224, 224))
 arr = np.array(img_resized) / 255.0
@@ -104,3 +105,5 @@ if "healthy" in best_label.lower():
     st.success(f"✅ Healthy – {best_label} ({best_score:.1%})")
 else:
     st.error(f"❌ Sick – {best_label} ({best_score:.1%})")
+
+
