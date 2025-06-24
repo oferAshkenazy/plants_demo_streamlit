@@ -13,11 +13,12 @@ st.title("Plant Disease Classification Demo")
 
 # ---------------- MODEL OPTIONS ----------------
 # Both models are stored in the same HF repo
+
 MODEL_OPTIONS = {
-    "ResNet50": "resnet50_model.h5",
-    "MobileNetV2": "mobilenetv2_model.h5"
+    "ResNet50": "resnet50_Color_Model.h5",
+    "MobileNetV2": "mobilenetv2_Color_Model.h5"
 }
-BASE_URL = "https://huggingface.co/oferaskgil/resnet50_model/resolve/main"
+BASE_URL = "https://huggingface.co/oferaskgil/Models/resolve/main"
 
 # Sidebar: choose model
 st.sidebar.header("Configuration")
