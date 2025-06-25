@@ -78,8 +78,8 @@ if not uploaded:
     st.stop()
 
 img = Image.open(uploaded).convert("RGB")
-st.image(img, caption="Uploaded Image", use_column_width=True)
-
+#st.image(img, caption="Uploaded Image", use_column_width=True)
+st.image(img, caption="Uploaded Image", use_container_width=True)
 
 # Preprocess
 img_resized = img.resize((224, 224))
@@ -90,16 +90,37 @@ input_tensor = np.expand_dims(arr, axis=0)
 preds = model.predict(input_tensor)[0]
 top_indices = preds.argsort()[-3:][::-1]
 
-# Display top 3
-st.subheader("Top 3 Predictions")
-for idx in top_indices:
-    st.write(f"{class_names[idx]}: {preds[idx]:.1%}")
+# Health check
+best_label = class_names[top_indices[0]]
+# 1. replace every underscore with a pipe
+s_pipe = best_label.replace("___", "|")
+# 2. split into two parts at the first pipe
+first_part, second_part = s_pipe.split("|", 1)
+
+best_score = preds[top_indices[0]]
+status=""
+if "healthy" in best_label.lower():
+    status="Healthy"
+else:
+    status="Sick"
+
+st.subheader("Prediction:")
+#st.write(f"{best_label}: {best_score:.1%}")
+st.write(f"The leaf that you uploaded is {first_part} ,and it indicates that the plant is {status}")
+st.write(f"The name of the plant disease:{second_part} - {best_score:.1%}")
+st.write(f"Recommended treatment method:")
+
+
+#for idx in top_indices:
+#        st.write(f"{class_names[idx]}: {preds[idx]:.1%}")
+
 
 # Display all probabilities
 st.subheader("All Class Probabilities")
 df = pd.DataFrame({'Probability': preds}, index=class_names)
 st.bar_chart(df)
 
+'''
 # Health check
 best_label = class_names[top_indices[0]]
 best_score = preds[top_indices[0]]
@@ -107,5 +128,5 @@ if "healthy" in best_label.lower():
     st.success(f"✅ Healthy – {best_label} ({best_score:.1%})")
 else:
     st.error(f"❌ Sick – {best_label} ({best_score:.1%})")
-
+'''
 
