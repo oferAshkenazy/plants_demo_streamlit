@@ -120,13 +120,13 @@ st.subheader("All Class Probabilities")
 df = pd.DataFrame({'Probability': preds}, index=class_names)
 st.bar_chart(df)
 
-'''
+
 # Health check
-best_label = class_names[top_indices[0]]
-best_score = preds[top_indices[0]]
-if "healthy" in best_label.lower():
-    st.success(f"✅ Healthy – {best_label} ({best_score:.1%})")
-else:
-    st.error(f"❌ Sick – {best_label} ({best_score:.1%})")
-'''
+#best_label = class_names[top_indices[0]]
+#best_score = preds[top_indices[0]]
+#if "healthy" in best_label.lower():
+#    st.success(f"✅ Healthy – {best_label} ({best_score:.1%})")
+#else:
+#    st.error(f"❌ Sick – {best_label} ({best_score:.1%})")
+
 
