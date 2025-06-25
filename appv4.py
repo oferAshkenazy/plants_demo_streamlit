@@ -16,7 +16,8 @@ st.title("Plant Disease Classification Demo")
 
 MODEL_OPTIONS = {
     "ResNet50": "resnet50_Color_Model.h5",
-    "MobileNetV2": "mobilenetv2_Color_Model.h5"
+    "MobileNetV2": "mobilenetv2_Color_Model.h5",
+    "MobileNetV2-Grayscale": "mobilenetv2_Grayscale_Model.h5"
 }
 BASE_URL = "https://huggingface.co/oferaskgil/Models/resolve/main"
 
