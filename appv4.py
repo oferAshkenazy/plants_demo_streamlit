@@ -55,8 +55,8 @@ st.title("Plant Disease Classification Demo")
 # Both models are stored in the same HF repo
 
 MODEL_OPTIONS = {
-    "ResNet50": "resnet50_Color_Model.h5",
     "MobileNetV2": "mobilenetv2_Color_Model.h5",
+    "ResNet50": "resnet50_Color_Model.h5",
     "MobileNetV2-Grayscale": "mobilenetv2_Grayscale_Model.h5"
 }
 BASE_URL = "https://huggingface.co/oferaskgil/Models/resolve/main"
@@ -109,6 +109,7 @@ st.sidebar.write(f"{len(class_names)} classes available")
 n_out = model.output_shape[-1]
 if len(class_names) != n_out:
     st.error(f"Mismatch: labels ({len(class_names)}) vs model outputs ({n_out})")
+
     st.stop()
 
 # Image upload
