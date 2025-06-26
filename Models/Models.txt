@@ -1,0 +1,3 @@
+https://huggingface.co/oferaskgil/Models/resolve/main/mobilenetv2_Color_Model.h5
+https://huggingface.co/oferaskgil/Models/resolve/main/mobilenetv2_Color_Model.h5
+https://huggingface.co/oferaskgil/Models/resolve/main/mobilenetv2_Grayscale_Model.h5
