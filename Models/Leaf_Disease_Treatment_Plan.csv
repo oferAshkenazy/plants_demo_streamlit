@@ -1,0 +1,39 @@
+Plant,Disease,1st Generation Treatment,2nd Generation Treatment
+Apple,Apple scab,Remove and destroy infected apple leaves. Apply fungicide or pesticide appropriate for Apple scab.,Use disease-resistant varieties and rotate crops yearly.
+Apple,Black rot,Remove and destroy infected apple leaves. Apply fungicide or pesticide appropriate for Black rot.,Use disease-resistant varieties and rotate crops yearly.
+Apple,Cedar apple rust,Remove and destroy infected apple leaves. Apply fungicide or pesticide appropriate for Cedar apple rust.,Use disease-resistant varieties and rotate crops yearly.
+Apple,healthy,Maintain proper watering and sunlight. Regularly inspect for pests.,Apply balanced fertilizer and ensure good soil drainage.
+Blueberry,healthy,Maintain proper watering and sunlight. Regularly inspect for pests.,Apply balanced fertilizer and ensure good soil drainage.
+Cherry,Powdery mildew,Remove and destroy infected cherry_(including_sour) leaves. Apply fungicide or pesticide appropriate for Powdery mildew.,Use disease-resistant varieties and rotate crops yearly.
+Cherry,healthy,Maintain proper watering and sunlight. Regularly inspect for pests.,Apply balanced fertilizer and ensure good soil drainage.
+Corn_(maize),Cercospora leaf spot Gray leaf spot,Remove and destroy infected corn_(maize) leaves. Apply fungicide or pesticide appropriate for Cercospora leaf spot Gray leaf spot.,Use disease-resistant varieties and rotate crops yearly.
+Corn_(maize),Common rust ,Remove and destroy infected corn_(maize) leaves. Apply fungicide or pesticide appropriate for Common rust .,Use disease-resistant varieties and rotate crops yearly.
+Corn_(maize),Northern Leaf Blight,Remove and destroy infected corn_(maize) leaves. Apply fungicide or pesticide appropriate for Northern Leaf Blight.,Use disease-resistant varieties and rotate crops yearly.
+Corn_(maize),healthy,Maintain proper watering and sunlight. Regularly inspect for pests.,Apply balanced fertilizer and ensure good soil drainage.
+Grape,Black rot,Remove and destroy infected grape leaves. Apply fungicide or pesticide appropriate for Black rot.,Use disease-resistant varieties and rotate crops yearly.
+Grape,Esca (Black Measles),Remove and destroy infected grape leaves. Apply fungicide or pesticide appropriate for Esca (Black Measles).,Use disease-resistant varieties and rotate crops yearly.
+Grape,Leaf blight (Isariopsis Leaf Spot),Remove and destroy infected grape leaves. Apply fungicide or pesticide appropriate for Leaf blight (Isariopsis Leaf Spot).,Use disease-resistant varieties and rotate crops yearly.
+Grape,healthy,Maintain proper watering and sunlight. Regularly inspect for pests.,Apply balanced fertilizer and ensure good soil drainage.
+Orange,Haunglongbing (Citrus greening),Remove and destroy infected orange leaves. Apply fungicide or pesticide appropriate for Haunglongbing (Citrus greening).,Use disease-resistant varieties and rotate crops yearly.
+Peach,Bacterial spot,Remove and destroy infected peach leaves. Apply fungicide or pesticide appropriate for Bacterial spot.,Use disease-resistant varieties and rotate crops yearly.
+Peach,healthy,Maintain proper watering and sunlight. Regularly inspect for pests.,Apply balanced fertilizer and ensure good soil drainage.
+"Pepper,_bell",Bacterial spot,"Remove and destroy infected pepper,_bell leaves. Apply fungicide or pesticide appropriate for Bacterial spot.",Use disease-resistant varieties and rotate crops yearly.
+"Pepper,_bell",healthy,Maintain proper watering and sunlight. Regularly inspect for pests.,Apply balanced fertilizer and ensure good soil drainage.
+Potato,Early blight,Remove and destroy infected potato leaves. Apply fungicide or pesticide appropriate for Early blight.,Use disease-resistant varieties and rotate crops yearly.
+Potato,Late blight,Remove and destroy infected potato leaves. Apply fungicide or pesticide appropriate for Late blight.,Use disease-resistant varieties and rotate crops yearly.
+Potato,healthy,Maintain proper watering and sunlight. Regularly inspect for pests.,Apply balanced fertilizer and ensure good soil drainage.
+Raspberry,healthy,Maintain proper watering and sunlight. Regularly inspect for pests.,Apply balanced fertilizer and ensure good soil drainage.
+Soybean,healthy,Maintain proper watering and sunlight. Regularly inspect for pests.,Apply balanced fertilizer and ensure good soil drainage.
+Squash,Powdery mildew,Remove and destroy infected squash leaves. Apply fungicide or pesticide appropriate for Powdery mildew.,Use disease-resistant varieties and rotate crops yearly.
+Strawberry,Leaf scorch,Remove and destroy infected strawberry leaves. Apply fungicide or pesticide appropriate for Leaf scorch.,Use disease-resistant varieties and rotate crops yearly.
+Strawberry,healthy,Maintain proper watering and sunlight. Regularly inspect for pests.,Apply balanced fertilizer and ensure good soil drainage.
+Tomato,Bacterial spot,Remove and destroy infected tomato leaves. Apply fungicide or pesticide appropriate for Bacterial spot.,Use disease-resistant varieties and rotate crops yearly.
+Tomato,Early blight,Remove and destroy infected tomato leaves. Apply fungicide or pesticide appropriate for Early blight.,Use disease-resistant varieties and rotate crops yearly.
+Tomato,Late blight,Remove and destroy infected tomato leaves. Apply fungicide or pesticide appropriate for Late blight.,Use disease-resistant varieties and rotate crops yearly.
+Tomato,Leaf Mold,Remove and destroy infected tomato leaves. Apply fungicide or pesticide appropriate for Leaf Mold.,Use disease-resistant varieties and rotate crops yearly.
+Tomato,Septoria leaf spot,Remove and destroy infected tomato leaves. Apply fungicide or pesticide appropriate for Septoria leaf spot.,Use disease-resistant varieties and rotate crops yearly.
+Tomato,Spider mites Two-spotted spider mite,Remove and destroy infected tomato leaves. Apply fungicide or pesticide appropriate for Spider mites Two-spotted spider mite.,Use disease-resistant varieties and rotate crops yearly.
+Tomato,Target Spot,Remove and destroy infected tomato leaves. Apply fungicide or pesticide appropriate for Target Spot.,Use disease-resistant varieties and rotate crops yearly.
+Tomato,Tomato Yellow Leaf Curl Virus,Remove and destroy infected tomato leaves. Apply fungicide or pesticide appropriate for Tomato Yellow Leaf Curl Virus.,Use disease-resistant varieties and rotate crops yearly.
+Tomato,Tomato mosaic virus,Remove and destroy infected tomato leaves. Apply fungicide or pesticide appropriate for Tomato mosaic virus.,Use disease-resistant varieties and rotate crops yearly.
+Tomato,healthy,Maintain proper watering and sunlight. Regularly inspect for pests.,Apply balanced fertilizer and ensure good soil drainage.
