@@ -153,21 +153,21 @@ best_score = preds[top_indices[0]]
 status=""
 if "healthy" in best_label.lower():
     status="Healthy"
-    st.subheader("Prediction : ", )
-    st.success(f"✅ Healthy – {best_label} Probability ({best_score:.1%})")
+#    st.subheader("Prediction : ", )
+#    st.success(f"✅ Healthy – {best_label} Probability ({best_score:.1%})")
 else:
     status="Sick"
-    st.subheader("Prediction : ", )
-    st.error(f"⚠️ Sick – {best_label} Probability ({best_score:.1%})")
+#    st.subheader("Prediction : ", )
+#    st.error(f"⚠️ Sick – {best_label} Probability ({best_score:.1%})")
 
 #st.write(f"{best_label}: {best_score:.1%}")
 if status=="Healthy":
-    st.write(f"The leaf that you uploaded is <span style='color:blue;font-weight:bold'>{first_part} </span>,and it indicates that the plant is <span style='color:green;font-weight:bold'>{status}</span>"  ,  unsafe_allow_html=True)
+    st.write(f"The leaf that you uploaded is <span style='color:blue;font-weight:bold'>{first_part} </span>,and it indicates that the plant is <span style='color:green;font-weight:bold'>{status} - ({best_score:.1%})</span>"  ,  unsafe_allow_html=True)
 if status=="Sick":
     st.write(
         f"The leaf that you uploaded is <span style='color:blue;font-weight:bold'>{first_part} </span>,and it indicates that the plant is <span style='color:red;font-weight:bold'>{status}</span>",
         unsafe_allow_html=True)
-    st.write(f"The name of the plant disease : <span style='color:red;font-weight:bold'>{second_part}</span>",
+    st.write(f"The name of the plant disease : <span style='color:red;font-weight:bold'>{second_part} - ({best_score:.1%})</span>",
     unsafe_allow_html=True)
 
 st.write("")
