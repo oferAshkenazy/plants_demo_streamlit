@@ -7,6 +7,46 @@ import tempfile
 import requests
 from pathlib import Path
 
+import pandas as pd
+import requests
+from io import StringIO
+
+def load_treatment_plan(
+    url="https://huggingface.co/oferaskgil/Models/resolve/main/Leaf_Disease_Treatment_Plan.csv"
+) -> pd.DataFrame:
+    resp = requests.get(url); resp.raise_for_status()
+    return pd.read_csv(StringIO(resp.text))
+
+def normalize(s: str) -> str:
+    # replace triple-underscores first, then single underscores
+    return s.replace('___',' ').replace('_',' ').strip().lower()
+
+def get_treatments(
+    plant_name: str,
+    disease_name: str,
+    df: pd.DataFrame = None
+) -> tuple[str|None, str|None]:
+    if df is None:
+        df = load_treatment_plan()
+
+    # build normalized columns
+    df = df.assign(
+        plant_norm   = df['Plant'].astype(str).map(normalize),
+        disease_norm = df['Disease'].astype(str).map(normalize),
+    )
+
+    p_norm = normalize(plant_name)
+    d_norm = normalize(disease_name)
+
+    match = df[(df['plant_norm'] == p_norm) & (df['disease_norm'] == d_norm)]
+    if match.empty:
+        return None, None
+
+    row = match.iloc[0]
+    return row['1st Generation Treatment'], row['2nd Generation Treatment']
+
+df = load_treatment_plan()
+
 # Page settings
 st.set_page_config(page_title="Plant Disease Classification Demo", layout="wide")
 st.title("Plant Disease Classification Demo")
@@ -77,14 +117,26 @@ if not uploaded:
     st.info("Please upload an image to classify.")
     st.stop()
 
+# Open full-res image
 img = Image.open(uploaded).convert("RGB")
-#st.image(img, caption="Uploaded Image", use_column_width=True)
-st.image(img, caption="Uploaded Image", use_container_width=True)
 
-# Preprocess
+# — Display at 50% size —
+orig_w, orig_h = img.size
+new_size = (orig_w // 2, orig_h // 2)
+display_img = img.resize(new_size)
+
+st.image(
+    display_img,
+    caption="Uploaded Image",
+    use_container_width =False,  # let width param control sizing
+    width=new_size[0]
+)
+
+# Preprocess at full-res (or your standard 224×224)
 img_resized = img.resize((224, 224))
 arr = np.array(img_resized) / 255.0
 input_tensor = np.expand_dims(arr, axis=0)
+# …continue with your prediction code…
 
 # Predict
 preds = model.predict(input_tensor)[0]
@@ -101,21 +153,45 @@ best_score = preds[top_indices[0]]
 status=""
 if "healthy" in best_label.lower():
     status="Healthy"
+    st.subheader("Prediction : ", )
+    st.success(f"✅ Healthy – {best_label} Probability ({best_score:.1%})")
 else:
     status="Sick"
+    st.subheader("Prediction : ", )
+    st.error(f"⚠️ Sick – {best_label} Probability ({best_score:.1%})")
 
-st.subheader("Prediction:")
 #st.write(f"{best_label}: {best_score:.1%}")
-st.write(f"The leaf that you uploaded is {first_part} ,and it indicates that the plant is {status}")
-st.write(f"The name of the plant disease:{second_part} - {best_score:.1%}")
-st.write(f"Recommended treatment method:")
+if status=="Healthy":
+    st.write(f"The leaf that you uploaded is <span style='color:blue;font-weight:bold'>{first_part} </span>,and it indicates that the plant is <span style='color:green;font-weight:bold'>{status}</span>"  ,  unsafe_allow_html=True)
+if status=="Sick":
+    st.write(
+        f"The leaf that you uploaded is <span style='color:blue;font-weight:bold'>{first_part} </span>,and it indicates that the plant is <span style='color:red;font-weight:bold'>{status}</span>",
+        unsafe_allow_html=True)
+    st.write(f"The name of the plant disease : <span style='color:red;font-weight:bold'>{second_part}</span>",
+    unsafe_allow_html=True)
 
+st.write("")
+# Fetch your treatments however you do it
+first, second = get_treatments(first_part, second_part, df)
 
-#for idx in top_indices:
-#        st.write(f"{class_names[idx]}: {preds[idx]:.1%}")
+# — Row 1: the header in column 1, nothing in column 2 —
+col1, col2 = st.columns([0.3, 0.7])
+with col1:
+    st.write("Recommended treatment methods:")
+with col2:
+    pass  # leave blank
+
+# — Row 2: blank in col1 to “indent” into col2, then your two lines —
+col1, col2 = st.columns([0.05, 0.95])
+with col1:
+    st.write("")  # spacer
+with col2:
+    st.write("1st Gen:", first)
+    st.write("2nd Gen:", second)
 
 
 # Display all probabilities
+st.write("")
 st.subheader("All Class Probabilities")
 df = pd.DataFrame({'Probability': preds}, index=class_names)
 st.bar_chart(df)
